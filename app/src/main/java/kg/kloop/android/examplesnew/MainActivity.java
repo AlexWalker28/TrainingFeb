@@ -2,12 +2,14 @@ package kg.kloop.android.examplesnew;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = MainActivity.class.getSimpleName();
     Button button00;
     Button button10;
     Button button20;
@@ -43,21 +45,74 @@ public class MainActivity extends AppCompatActivity {
         button00.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (xoModel.getWinner() == 0) {
-                    if (xoModel.getPlayer() == XoModel.PLAYER_X) {
-                        button00.setText("x");
-                        infoTextView.setText("It's now Player 2 turn");
-                    } else {
-                        button00.setText("o");
-                        infoTextView.setText("It's now Player 1 turn");
-                    }
-                    xoController.playerMove(0, 0);
-                } else {
-                    infoTextView.setText(xoModel.getWinner());
-                }
+                playerMove(0, 0, (Button) view);
             }
         });
 
+        button10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                playerMove(1, 0, (Button) view);
+
+            }
+        });
+
+        button20.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                playerMove(2, 0, (Button) view);
+            }
+        });
+
+        button01.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                playerMove(0, 1, (Button) view);
+            }
+        });
+
+        button11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                playerMove(1, 1, (Button) view);
+            }
+        });
+
+        button02.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                playerMove(0, 2, (Button) view);
+            }
+        });
+        button12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                playerMove(1, 2, (Button) view);
+            }
+        });
+        button22.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                playerMove(2, 2, (Button) view);
+            }
+        });
+
+    }
+
+    private void playerMove(int x, int y, Button button) {
+        if (xoModel.getWinner() == XoModel.NO_WINNER && xoModel.getField()[x][y] == 0) {
+            if (xoModel.getPlayer() == XoModel.PLAYER_X) {
+                button.setText("x");
+                infoTextView.setText("It's now Player 2 turn");
+            } else {
+                button.setText("o");
+                infoTextView.setText("It's now Player 1 turn");
+            }
+            xoController.playerMove(x, y);
+            if (xoModel.getWinner() != XoModel.NO_WINNER) {
+                infoTextView.setText("The winner is Player " + String.valueOf(xoModel.getWinner()));
+            }
+        }
 
     }
 
