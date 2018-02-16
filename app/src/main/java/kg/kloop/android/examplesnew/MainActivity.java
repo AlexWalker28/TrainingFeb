@@ -1,6 +1,7 @@
 package kg.kloop.android.examplesnew;
 
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     Button button12;
     Button button22;
     TextView infoTextView;
+    ConstraintLayout layout;
     XoController xoController;
     XoModel xoModel;
 
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         button12 = findViewById(R.id.button12);
         button22 = findViewById(R.id.button22);
         infoTextView = findViewById(R.id.info_text_view);
+        layout = findViewById(R.id.constraint_layout);
         xoModel = new XoModel();
         xoController = new XoController(xoModel);
 
@@ -114,6 +117,19 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+    private void resetViews() {
+        for (int i = 0; i < layout.getChildCount(); i++) {
+            if (layout.getChildAt(i) instanceof Button) {
+                Button button = (Button) layout.getChildAt(i);
+                button.setText("");
+            } else {
+                TextView textView = (TextView) layout.getChildAt(i);
+                textView.setText("");
+            }
+
+        }
     }
 
 }
