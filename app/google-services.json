@@ -409,6 +409,50 @@
           "status": 2
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353840622153:android:db1cd1250bb45dd4",
+        "android_client_info": {
+          "package_name": "kg.kloop.android.tflatsmap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353840622153-lvqdt7d8sfifpo2eqapchoa6a4f921ro.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kg.kloop.android.tflatsmap",
+            "certificate_hash": "f08417a341d3e322bcff1ebb0befa31b53cecf2b"
+          }
+        },
+        {
+          "client_id": "353840622153-lsk5db1b9f2niqlo79dc2vbmckk096kl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfhJ3v6lJGWIeX2kgog8TFXwagGOBwVEQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353840622153-lsk5db1b9f2niqlo79dc2vbmckk096kl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
     }
   ],
   "configuration_version": "1"
